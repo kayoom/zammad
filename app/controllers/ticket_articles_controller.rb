@@ -95,6 +95,15 @@ class TicketArticlesController < ApplicationController
     }
   end
 
+  # POST /ticket_attachment/deletetempfile
+  def attachment_deletetempfile
+      Store.remove(
+        :object     => 'UploadCache',
+        :o_id       => form_id,
+        :filename   => params[:qqfile],
+      )
+  end
+
   # GET /ticket_attachment/1
   def attachment
 

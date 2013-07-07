@@ -357,6 +357,7 @@ class App.ControllerForm extends App.Controller
               endpoint: 'api/ticket_attachment_new'
               params:
                 form_id: @form_id
+              #endpoint: 'api/ticket_attachment_deletetemp'
             text:
               uploadButton: '<i class="icon-attachment"></i>'
             template: '<div class="qq-uploader">' +
@@ -364,6 +365,17 @@ class App.ControllerForm extends App.Controller
                         '<div class="btn qq-upload-icon qq-upload-button pull-right" style="">{uploadButtonText}</div>' +
                         '<ul class="qq-upload-list span5" style="margin-top: 10px;"></ul>' +
                       '</div>',
+            fileTemplate: '<li>' +
+            '<div class="qq-progress-bar"></div>' +
+            '<span class="qq-upload-spinner"></span>' +
+            '<span class="qq-upload-finished"></span>' +
+            '<span class="qq-upload-file"></span>' +
+            '<span class="qq-upload-size"></span>' +
+            '<a class="qq-upload-cancel" href="#">{cancelButtonText}</a>' +
+            '<a class="qq-upload-retry" href="#">{retryButtonText}</a>' +
+            '<a class="qq-upload-delete" href="#">X</a>' +
+            '<span class="qq-upload-status-text">{statusText}</span>' +
+            '</li>',
             classes:
               success: ''
               fail:    ''

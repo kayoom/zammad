@@ -4,6 +4,7 @@ class App.TicketCreate extends App.Controller
     'submit form':         'submit'
     'click .submit':       'submit'
     'click .cancel':       'cancel'
+    'click .qq-upload-delete':       'deleteTempFile'
 
   constructor: (params) ->
     super
@@ -220,6 +221,9 @@ class App.TicketCreate extends App.Controller
     new App.TextModuleUI(
       el: $('.ticket-create')
     )
+
+  deleteTempFile: ->
+    console.log('deleteTempFile')
 
   localUserInfo: (params) =>
     @userInfo(
