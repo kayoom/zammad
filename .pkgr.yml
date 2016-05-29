@@ -18,6 +18,7 @@ before:
   - env
   - echo "gem 'pg'" >> Gemfile.local
   - cp config/database.yml.pkgr config/database.yml
+  - rvm use ruby-2.2.3
 
 after:
   - ruby -v
