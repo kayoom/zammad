@@ -20,6 +20,10 @@ before:
   - bundle install
   - cp config/database.yml.pkgr config/database.yml
 
+before_install:
+  - ruby -v
+  - bundle install
+
 env:
   - RAILS_ENV=production
   - PORT=3000
