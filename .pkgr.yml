@@ -14,8 +14,11 @@ targets:
 
 before:
   - uname -a
+  - ruby -v
   - env
   - echo "gem 'pg'" >> Gemfile.local
+  - bundler install
+  - cp config/database.yml.pkgr config/database.yml
 
 env:
   - RAILS_ENV=production
