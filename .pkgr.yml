@@ -17,7 +17,7 @@ before:
   - ruby -v
   - env
   - echo "gem 'pg'" >> Gemfile.local
-  - bundler install
+  - bundle install
   - cp config/database.yml.pkgr config/database.yml
 
 env:
