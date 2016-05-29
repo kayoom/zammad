@@ -21,20 +21,7 @@ before:
   - echo "gem 'mysql2', '~> 0.3.20'" >> Gemfile.local
   - sed -i "s/specs:/specs:\\n    pg (0.18.4)/g" Gemfile.lock
   - sed -i "s/DEPENDENCIES/DEPENDENCIES\\n  pg/g" Gemfile.lock
-  - cat Gemfile.lock
-
-after:
-  - ruby -v
-  - #after
-
-before_install:
-  - ruby -v
-  - #before_install
-  - bundle install
-
-after_install:
-  - ruby -v
-  - #after_install
+  - "#cat Gemfile.lock"
 
 env:
   - RAILS_ENV=production
