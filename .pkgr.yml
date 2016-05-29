@@ -41,4 +41,7 @@ env:
   - PORT=3000
   - RAILS_SERVE_STATIC_FILES=true
 
+services:
+  - postgres
+
 notifications: false
