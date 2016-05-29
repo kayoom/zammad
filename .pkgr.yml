@@ -18,7 +18,7 @@ before:
   - env
   - echo "gem 'pg'" >> Gemfile.local
   - echo "gem 'mysql2', '~> 0.3.20'" >> Gemfile.local
-  - sed -i "s/specs\:/specs:\\n    pg (0.18.4)/g"
+  - sed -i "s/specs\:/specs:\\n    pg (0.18.4)/g" Gemfile.lock
 
 after:
   - ruby -v
