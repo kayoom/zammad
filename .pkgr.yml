@@ -17,12 +17,20 @@ before:
   - ruby -v
   - env
   - echo "gem 'pg'" >> Gemfile.local
-  - bundle install
   - cp config/database.yml.pkgr config/database.yml
+
+after:
+  - ruby -v
+  - #after
 
 before_install:
   - ruby -v
+  - #before_install
   - bundle install
+
+after_install:
+  - ruby -v
+  - #after_install
 
 env:
   - RAILS_ENV=production
