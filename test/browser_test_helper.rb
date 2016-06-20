@@ -1825,8 +1825,6 @@ wait untill text in selector disabppears
     end
     if data[:customer]
       element = instance.find_elements(css: '.active .newTicket input[name="customer_id_completion"]')[0]
-      element.click
-      sleep 1
       element.clear
 
       # workaround, sometimes focus is not triggered
