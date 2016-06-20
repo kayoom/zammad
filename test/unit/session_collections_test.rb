@@ -74,6 +74,20 @@ class SessionCollectionsTest < ActiveSupport::TestCase
     assert(check_if_collection_exists(result2, :Role), 'check collections - after init')
     assert(check_if_collection_exists(result2, :Signature), 'check collections - after init')
     assert(check_if_collection_exists(result2, :EmailAddress), 'check collections - after init')
+
+    assert_equal(result1[:collection][:Group], result2[:collection][:Group], 'check collections')
+    assert_equal(result1[:collection][:Role], result2[:collection][:Role], 'check collections')
+    assert_equal(result1[:collection][:Signature], result2[:collection][:Signature], 'check collections')
+    assert_equal(result1[:collection][:EmailAddress], result2[:collection][:EmailAddress], 'check collections')
+    assert_equal(result1[:collection][:TicketState], result2[:collection][:TicketState], 'check collections')
+    assert_equal(result1[:collection][:TicketPriority], result2[:collection][:TicketPriority], 'check collections')
+    assert_equal(result1[:collection][:TicketArticleType], result2[:collection][:TicketArticleType], 'check collections')
+    assert_equal(result1[:collection][:TicketArticleSender], result2[:collection][:TicketArticleSender], 'check collections')
+    assert_equal(result1[:collection][:Signature], result2[:collection][:Signature], 'check collections')
+    assert_equal(result1[:collection][:Macro], result2[:collection][:Macro], 'check collections')
+    assert_equal(result1[:collection][:EmailAddress], result2[:collection][:EmailAddress], 'check collections')
+    assert_equal(result1[:collection], result2[:collection], 'check collections')
+
     assert_equal(result1, result2, 'check collections')
 
     result3 = collection_client3.push
