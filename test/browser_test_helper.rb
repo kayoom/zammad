@@ -1825,7 +1825,14 @@ wait untill text in selector disabppears
     end
     if data[:customer]
       element = instance.find_elements(css: '.active .newTicket input[name="customer_id_completion"]')[0]
+      element.click
       element.clear
+
+      # ff issue, sometimes focus event gets dropped
+      # if drowdown is not open, try it again
+      if !instance.find_elements(css: '.active .newTicket .js-recipientDropdown.open')[0]
+        instance.execute_script('$(".active .newTicket .js-recipientDropdown").addClass("open")')
+      end
 
       # workaround, sometimes focus is not triggered
       element.send_keys(data[:customer])
