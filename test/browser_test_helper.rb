@@ -1465,7 +1465,6 @@ wait untill text in selector disabppears
     element.click
     element.clear
 
-    # workaround, sometimes focus is not triggered
     element.send_keys(params[:customer])
     sleep 2.5
 
@@ -1834,13 +1833,17 @@ wait untill text in selector disabppears
         instance.execute_script('$(".active .newTicket .js-recipientDropdown").addClass("open")')
       end
 
-      # workaround, sometimes focus is not triggered
       element.send_keys(data[:customer])
       sleep 2.5
 
       element.send_keys(:enter)
-      #instance.find_elements(css: '.active .newTicket .recipientList-entry.js-user.is-active')[0].click
       sleep 0.4
+      # ff issue, sometimes enter event gets dropped
+      # take user manually
+      if instance.find_elements(css: '.active .newTicket .js-recipientDropdown.open')[0]
+        instance.find_elements(css: '.active .newTicket .recipientList-entry.js-user.is-active')[0].click
+        sleep 0.4
+      end
     end
 
     if params[:custom_data_select]
@@ -1997,7 +2000,6 @@ wait untill text in selector disabppears
       element.click
       element.clear
 
-      # workaround, sometimes focus is not triggered
       element.send_keys(data[:customer])
       sleep 2.5
 
