@@ -874,9 +874,12 @@ class App.ChannelEmailNotificationWizard extends App.WizardModal
     adapter = @$('.js-outbound [name=adapter]').val()
     if adapter is 'smtp'
       configureAttributesOutbound = [
-        { name: 'options::host',     display: 'Host',     tag: 'input', type: 'text',     limit: 120, null: false, autocapitalize: false, autofocus: true },
-        { name: 'options::user',     display: 'User',     tag: 'input', type: 'text',     limit: 120, null: true, autocapitalize: false, autocomplete: 'off' },
-        { name: 'options::password', display: 'Password', tag: 'input', type: 'password', limit: 120, null: true, autocapitalize: false, autocomplete: 'new-password', single: true },
+        { name: 'options::host',           display: 'Host',           tag: 'input', type: 'text',     limit: 120, null: false, autocapitalize: false, autofocus: true },
+        { name: 'options::port',           display: 'Port',           tag: 'input', type: 'number',   limit: 5,   null: false },
+        { name: 'options::domain',         display: 'Domain',         tag: 'input', type: 'text',     limit: 120, null: false, autocapitalize: false },
+        { name: 'options::authentication', display: 'Authentication', tag: 'select', options: { login: 'Login' }, null: false },
+        { name: 'options::user',           display: 'User',           tag: 'input', type: 'text',     limit: 120, null: true, autocapitalize: false, autocomplete: 'off' },
+        { name: 'options::password',       display: 'Password',       tag: 'input', type: 'password', limit: 120, null: true, autocapitalize: false, autocomplete: 'new-password', single: true },
       ]
       @form = new App.ControllerForm(
         el:    @$('.base-outbound-settings')

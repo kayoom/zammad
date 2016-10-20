@@ -37,12 +37,13 @@ class Channel::Driver::Smtp
     mail = Channel::EmailBuild.build(attr, notification)
     mail.delivery_method :smtp, {
       openssl_verify_mode: options[:openssl_verify_mode],
-      address: options[:host],
       port: options[:port],
-      domain: options[:host],
+      address: options[:host],
+      domain: options[:domain],
       user_name: options[:user],
       password: options[:password],
       enable_starttls_auto: options[:enable_starttls_auto],
+      authentication: options[:authentication],
     }
     mail.deliver
   end
